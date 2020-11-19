@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Task 3</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="wrap">
+      <h2>Click to sign in or sign up</h2>
+      
+      <button class="btn-sign sign-up">Sign up</button>
+      <button class="btn-sign sign-in">Sign in</button>
+    </div>
+
+    <div class="modal">
+      <div class="modal-overlay">
+        <div class="modal_sign-up">
+          <input type="text" placeholder="Create login">
+          <input type="password" placeholder="Create password">
+          <input type="text" placeholder="Enter your age">
+          <input type="text" placeholder="Enter your name">
+
+          <div class="submit-reset">
+            <input class="btn-submit" type="submit" value="Sign up">
+            <input class="btn-reset" type="reset" value="Reset">
+          </div>  
+        </div>
+      </div>          
+    </div>
+
+    <div class="modal modal_sign-in">
+      <input type="text" placeholder="Enter login">
+      <input type="password" placeholder="Enter password">
+
+      <div class="submit-reset">
+        <input class="btn-submit" type="submit" value="Sign in">
+        <input class="btn-reset" type="reset" value="Cancel">
+      </div>      
+    </div>
+  </body>
+</html>
