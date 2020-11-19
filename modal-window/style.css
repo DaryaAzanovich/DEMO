@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.wrap {
+  margin: 100px auto;
+  max-width: 500px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn-sign {
+  margin: 20px;
+  padding: 10px 20px;
+
+  font-size: 1em;
+
+  background-color: #6a5acd;
+  color: #ffffff;
+
+  border-radius: 20px;
+  border: 2px solid transparent;
+}
+
+.btn-sign:focus, 
+.btn-sign:active {
+  outline: none;
+  border: 2px solid indianred;
+}
+
+.modal {
+  margin: 100px auto;
+  max-width: 300px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+
+  background:  rgba(0, 0, 0, 0.5);
+}
+
+.modal_sign-up {
+  max-width: 600px;
+  margin: 100px auto;
+
+  border-radius: 5px;
+  background-color: #ffffff;
+}
+
+.submit-reset {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+input {
+  width: 80%;
+  
+  margin: 10px;
+  padding: 10px;
+}
+
+.btn-submit,
+.btn-reset {
+  width: 80px;
+}
