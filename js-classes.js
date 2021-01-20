@@ -26,8 +26,18 @@ function Car(name, model, year, color,  maxSpeed, fuelCapacity = 60, fuelConsump
 
     this.calculateWay = function(kilometers, fuel) {
         if(fuel < 10) {
-            return 'Количество топлива меньше 10!';
+            alert('Количество топлива меньше 10!');
         }
+
+        let travelTime = kilometers / this.maxSpeed,
+            neededFuel = (kilometers / 100) * fuelConsumption,
+            refueling = fuel - neededFuel;
+
+        if(refueling < 0) {
+            alert(`Нужна дозаправка на ${Math.abs(refueling)} литров!`);
+        }
+
+        return `Среднее время в пути: ${travelTime}`;
     }
 }
 
