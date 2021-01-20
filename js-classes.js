@@ -44,7 +44,7 @@ function Car(name, model, year, color,  maxSpeed, fuelCapacity = 60, fuelConsump
 
 
 function BMW(name, model, year, color,  maxSpeed, fuelCapacity = 60, fuelConsumption = 10, seatHeated = false) {
-    Car.apply(this, [name, model, year, color,  maxSpeed, fuelCapacity, fuelConsumption]); // отнаследовать
+    Car.apply(this, [name, model, year, color,  maxSpeed, fuelCapacity, fuelConsumption]);
   
     this.climatControl = true;
     this.seatHeated = seatHeated;
@@ -66,12 +66,31 @@ function Lexus(name, model, year, color,  maxSpeed, fuelCapacity = 60, fuelConsu
   
     this.panoramicRoof = panoramicRoof;
   
-    this.isRoofOpen = function() {
+    Lexus.prototype.isRoofOpen = function() {
       if(panoramicRoof) {
         return 'Крыша открыта';
       } else {
         return 'Крыша закрыта';
       }
+    };
+  
+}
+
+function Audi(name, model, year, color,  maxSpeed,  capacity = 3, fuelCapacity = 60, fuelConsumption = 10) {
+    Car.apply(this, [name, model, year, color,  maxSpeed, fuelCapacity, fuelConsumption]);
+  
+    this.capacity = capacity;
+  
+    Audi.prototype.catsSpecialPlaceCapacity = function(catsAmount) {
+      let unplacedCats = this.capacity - catsAmount;
+      
+      if(unplacedCats < 0) {
+          alert(`Для ${Math.abs(unplacedCats)} котик(a/ов) не будет специального места :(`);
+      } else {
+          alert('Все котики влезут в специальное место :3');
+      }
+
+      return unplacedCats;
     };
   
 }
@@ -82,4 +101,7 @@ console.log(bmw.getAge(), bmw.isSeatHeated());
 
 
 const lexus = new Lexus('Lexus', 'arka2', 1987, 'red', 300, 10);
-console.log(lexus.getAge(), lexus.isRoofOpen());
+console.log(lexus.calculateWay(580, 50), lexus.isRoofOpen());
+
+const audi = new Audi('Audi', 'xp-12', 2015, 'bue', 300, 10);
+console.log(audi.getFullName(580, 50), audi.catsSpecialPlaceCapacity(11));
