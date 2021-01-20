@@ -30,7 +30,7 @@ function Car(name, model, year, color,  maxSpeed, fuelCapacity = 60, fuelConsump
         }
 
         let travelTime = kilometers / this.maxSpeed,
-            neededFuel = (kilometers / 100) * fuelConsumption,
+            neededFuel = (kilometers / 100) * this.fuelConsumption,
             refueling = fuel - neededFuel;
 
         if(refueling < 0) {
@@ -50,11 +50,11 @@ function BMW(name, model, year, color,  maxSpeed, fuelCapacity = 60, fuelConsump
     this.seatHeated = seatHeated;
   
     BMW.prototype.isSeatHeated = function() {
-      if(seatHeated) {
-        seatHeated = !seatHeated;
+      if(this.seatHeated) {
+        this.seatHeated = !this.seatHeated;
         return 'Обогрев сидений выключен';
       } else {
-        seatHeated = !seatHeated;
+        this.seatHeated = !this.seatHeated;
         return 'Обогрев сидений включен';
       }
     };
@@ -67,7 +67,7 @@ function Lexus(name, model, year, color,  maxSpeed, fuelCapacity = 60, fuelConsu
     this.panoramicRoof = panoramicRoof;
   
     Lexus.prototype.isRoofOpen = function() {
-      if(panoramicRoof) {
+      if(this.panoramicRoof) {
         return 'Крыша открыта';
       } else {
         return 'Крыша закрыта';
@@ -76,7 +76,7 @@ function Lexus(name, model, year, color,  maxSpeed, fuelCapacity = 60, fuelConsu
   
 }
 
-function Audi(name, model, year, color,  maxSpeed,  capacity = 3, fuelCapacity = 60, fuelConsumption = 10) {
+function Audi(name, model, year, color,  maxSpeed, fuelCapacity = 60, fuelConsumption = 10, capacity = 3) {
     Car.apply(this, [name, model, year, color,  maxSpeed, fuelCapacity, fuelConsumption]);
   
     this.capacity = capacity;
@@ -97,11 +97,52 @@ function Audi(name, model, year, color,  maxSpeed,  capacity = 3, fuelCapacity =
 
 
 let bmw = new BMW('BMW', 'X5', 2000, 'black', 350, 30, 180, true);
-console.log(bmw.getAge(), bmw.isSeatHeated());
+console.group();
+console.log(bmw.name,
+    bmw.model,
+    bmw.year,
+    bmw.color,
+    bmw.maxSpeed,
+    bmw.fuelCapacity,
+    bmw.fuelConsumption);
+console.log(bmw.getFullName());
+console.log(bmw.changeColor('purple'));
+console.log(bmw.calculateWay(10, 122));
+console.log(bmw.getAge());
+console.log(bmw.isSeatHeated());
+console.groupEnd();
 
 
 const lexus = new Lexus('Lexus', 'arka2', 1987, 'red', 300, 10);
-console.log(lexus.calculateWay(580, 50), lexus.isRoofOpen());
+console.group();
+console.log(lexus.name,
+    lexus.model,
+    lexus.year,
+    lexus.color,
+    lexus.maxSpeed,
+    lexus.fuelCapacity,
+    lexus.fuelConsumption);
+console.log(lexus.panoramicRoof);
+console.log(lexus.getFullName());
+console.log(lexus.changeColor('purple'));
+console.log(lexus.calculateWay(10, 3));
+console.log(lexus.getAge());
+console.log(lexus.isRoofOpen());
+console.groupEnd();
 
-const audi = new Audi('Audi', 'xp-12', 2015, 'bue', 300, 10);
-console.log(audi.getFullName(580, 50), audi.catsSpecialPlaceCapacity(11));
+const audi = new Audi('Audi', 'xp-12', 2015, 'blue', 24, 7);
+console.group();
+console.log(audi.name,
+    audi.model,
+    audi.year,
+    audi.color,
+    audi.maxSpeed,
+    audi.fuelCapacity,
+    audi.fuelConsumption);
+console.log(audi.capacity);
+console.log(audi.getFullName());
+console.log(audi.changeColor('purple'));
+console.log(audi.calculateWay(1000, 122));
+console.log(audi.getAge());
+console.log(audi.catsSpecialPlaceCapacity(2));
+console.groupEnd();
